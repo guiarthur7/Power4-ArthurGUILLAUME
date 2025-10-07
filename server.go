@@ -25,7 +25,7 @@ func Jeu(w http.ResponseWriter, r *http.Request) {
 			Name1: r.FormValue("name1"),
 			Name2: r.FormValue("name2"),
 		}
-		tmpl, err := template.ParseFiles("./game/power.html", "./template/info_joueurs.html")
+		tmpl, err := template.ParseFiles("./game/powerfacile.html", "./template/info_joueurs.html")
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -37,7 +37,7 @@ func Jeu(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/", Home)
-	http.HandleFunc("/power.html", Jeu)
+	http.HandleFunc("/powerfacile.html", Jeu)
 	fs := http.FileServer(http.Dir("static/"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 	imFS := http.FileServer(http.Dir("src/"))
