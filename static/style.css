@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Raleway:wght@400;700&display=swap');
+
+html {
+    background-color: black;
+}
+
+body {
+    color: #f0f0f0;
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 40px;
+    font-size: 2.5em;
+    letter-spacing: 2px;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    color: #ff6b6b; 
+}
+
+.choixpseudo {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    letter-spacing: 2px;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    color: #ff6b6b; 
+}
+
+.textechoix {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    letter-spacing: 2px;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    color: #ff6b6b; 
+}
+
+.name1 {
+    color: #ff4d00;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.name2 {
+    color: #00bfff;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+form {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 24px 32px;
+    background: #23272b;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    font-family: 'Raleway', sans-serif;
+}
+
+.bouton {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1em;
+    background: #00bfff;
+    color: #23272b;
+    border: 2px solid #00bfff;
+    padding: 12px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    box-shadow: 0 0 15px #00bfff;
+    transition: 0.3s ease;
+}
+
+.bouton:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #00bfff, 0 0 40px #00bfff;
+    color: white;
+}
+
+.bouton-rouge {
+    background: #ff4d00;
+    border-color: #ff4d00;
+    box-shadow: 0 0 15px #ff4d00;
+}
+
+.bouton-rouge:hover {
+    box-shadow: 0 0 25px #ff4d00, 0 0 40px #ff4d00;
+}
+
+.bouton-orange {
+    background: #ff6b00;
+    border-color: #ff6b00;
+    box-shadow: 0 0 15px #ff6b00;
+}
+
+.bouton-orange:hover {
+    box-shadow: 0 0 25px #ff6b00, 0 0 40px #ff6b00;
+}
