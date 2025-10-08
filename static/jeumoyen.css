@@ -16,7 +16,7 @@ h1 {
     letter-spacing: 2px;
     text-align: center;
     font-family: 'Orbitron', sans-serif;
-    color: #ff6b6b; 
+    color: #e9ed16; 
 }
 
 .puissance4 {
@@ -46,4 +46,29 @@ h1 {
     box-shadow: 0 0 10px #e9ed16;
     margin: 6px;
     transition: all 0.3s ease;
+}
+
+.boutons button {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.1em;
+    letter-spacing: 2px;
+    background: #23272b;
+    border-radius: 20px;
+    color: #e9ed16;
+    border: 2px solid #e9ed16;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 5px;
+    margin-bottom: 40px;
+    margin-top: 30px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #e9ed16;
+    transition: all 0.3s ease;
+}
+
+.boutons button:hover {
+    background: #e9ed16;
+    color: #0a0a0a;
+    box-shadow: 0 0 20px #e9ed16;
+    transform: scale(1.1);
 }
