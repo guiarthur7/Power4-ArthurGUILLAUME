@@ -16,17 +16,23 @@
 
     <div class="puissance4">
 
-        <div class="boutons">
-            <button class="bouton-1">1</button>
-            <button class="bouton-2">2</button>
-            <button class="bouton-3">3</button>
-            <button class="bouton-4">4</button>
-            <button class="bouton-5">5</button>
-            <button class="bouton-6">6</button>
-            <button class="bouton-7">7</button>
-            <button class="bouton-6">8</button>
-            <button class="bouton-7">9</button>
-        </div>
+        <form action="./powernormal.html" method="POST">
+            <!-- Inputs cachés pour garder les noms des joueurs -->
+            <input type="hidden" name="name1" value="{{.Name1}}">
+            <input type="hidden" name="name2" value="{{.Name2}}">
+
+            <div class="boutons">
+                <button name="col" value="1">1</button>
+                <button name="col" value="2">2</button>
+                <button name="col" value="3">3</button>
+                <button name="col" value="4">4</button>
+                <button name="col" value="5">5</button>
+                <button name="col" value="6">6</button>
+                <button name="col" value="7">7</button>
+                <button name="col" value="8">8</button>
+                <button name="col" value="9">9</button>
+            </div>
+        </form>
 
         <div class="row">
             <div class="cell"></div>

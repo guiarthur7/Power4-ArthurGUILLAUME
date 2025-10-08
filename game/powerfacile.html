@@ -16,15 +16,22 @@
 
     <div class="puissance4">
 
-        <form action="/play" method="POST">
-            <button name="col" value="1">1</button>
-            <button name="col" value="2">2</button>
-            <button name="col" value="3">3</button>
-            <button name="col" value="4">4</button>
-            <button name="col" value="5">5</button>
-            <button name="col" value="6">6</button>
-            <button name="col" value="7">7</button>
+        <form action="./powerfacile.html" method="POST">
+            <!-- Inputs cachés pour garder les noms des joueurs -->
+            <input type="hidden" name="name1" value="{{.Name1}}">
+            <input type="hidden" name="name2" value="{{.Name2}}">
+
+            <div class="boutons">
+                <button name="col" value="1">1</button>
+                <button name="col" value="2">2</button>
+                <button name="col" value="3">3</button>
+                <button name="col" value="4">4</button>
+                <button name="col" value="5">5</button>
+                <button name="col" value="6">6</button>
+                <button name="col" value="7">7</button>
+            </div>
         </form>
+
         
         <div class="row">
             <div class="cell"></div>
