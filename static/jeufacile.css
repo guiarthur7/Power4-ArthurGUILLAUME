@@ -1,8 +1,15 @@
-html {
-    background-color: black;
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Raleway:wght@400;700&family=Poppins:wght@400;600;700&display=swap');
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
+    background: linear-gradient(135deg, #4a4a4a 0%, #3a3a3a 25%, #040404 50%, #3a3a3a 75%, #4a4a4a 100%);
+    background-size: 400% 400%;
+    animation: gradient-animation 15s ease infinite;
     color: #f0f0f0;
     font-family: 'Raleway', sans-serif;
     margin: 0;
@@ -10,13 +17,30 @@ body {
     text-align: center;
 }
 
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 h1 {
     margin-top: 40px;
-    font-size: 2.5em;
-    letter-spacing: 2px;
+    font-size: 3em;
+    font-weight: 900;
+    letter-spacing: 4px;
     text-align: center;
     font-family: 'Orbitron', sans-serif;
-    color: #00bfff; 
+    background: linear-gradient(135deg, #00d4ff, #00bfff, #4dd0e1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.6));
+    animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+    0%, 100% { filter: hue-rotate(0deg) drop-shadow(0 0 20px rgba(0, 212, 255, 0.6)); }
+    50% { filter: hue-rotate(10deg) drop-shadow(0 0 25px rgba(0, 191, 255, 0.7)); }
 }
 
 .puissance4 {
@@ -32,9 +56,25 @@ h1 {
     margin: 40px auto;
 }
 
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.cell {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #0a0a0a, #1a1a1a 40%, #000);
+    border: 3px solid #00bfff;
+    box-shadow: 0 0 10px #00bfff;
+    margin: 6px;
+    transition: all 0.3s ease;
+}
+
 .boutons button {
     font-family: 'Orbitron', sans-serif;
-    font-size: 3.1em;
+    font-size: 2.3em;
     letter-spacing: 2px;
     background: #23272b;
     border-radius: 20px;
@@ -53,23 +93,6 @@ h1 {
 .boutons button:hover {
     background: #00bfff;
     color: #0a0a0a;
-    box-shadow: 0 0 20px #00bfff;
+    box-shadow: 0 0 20px #00bfff, 0 0 35px #00bfff;
     transform: scale(1.1);
-}
-
-
-.row {
-    display: flex;
-    justify-content: center;
-}
-
-.cell {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, #0a0a0a, #1a1a1a 40%, #000);
-    border: 3px solid #00bfff;
-    box-shadow: 0 0 10px #00bfff;
-    margin: 6px;
-    transition: all 0.3s ease;
 }

@@ -1,15 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Raleway:wght@400;700&display=swap');
 
-html {
-    background-color: black;
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
+    background: linear-gradient(135deg, #4a4a4a 0%, #3a3a3a 25%, #040404 50%, #3a3a3a 75%, #4a4a4a 100%);
+    background-size: 400% 400%;
+    animation: gradient-animation 15s ease infinite;
     color: #f0f0f0;
     font-family: 'Raleway', sans-serif;
-    margin: 0;
-    padding: 0;
     text-align: center;
+}
+
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 h1 {
@@ -19,6 +28,17 @@ h1 {
     text-align: center;
     font-family: 'Orbitron', sans-serif;
     color: #ff6b6b; 
+    background: linear-gradient(135deg, #e88484, #d62f2f, #e16f6f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(171, 78, 78, 0.6));
+    animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+    0%, 100% { filter: hue-rotate(0deg) drop-shadow(0 0 20px rgba(237, 40, 22, 0.961)); }
+    50% { filter: hue-rotate(20deg) drop-shadow(0 0 25px rgba(255, 61, 61, 0.926)); }
 }
 
 .choixpseudo {
