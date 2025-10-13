@@ -41,7 +41,7 @@ func JeuFacile(w http.ResponseWriter, r *http.Request) {
 		data := GameData{
 			Player:  joueurs,
 			Game:    jeuEnCours,
-			Gagnant: 0, // Nouvelle partie
+			Gagnant: 0,
 		}
 
 		tmpl, err := template.ParseFiles("./game/powerfacile.html", "./template/info_joueurs.html")
@@ -65,7 +65,7 @@ func JeuNormal(w http.ResponseWriter, r *http.Request) {
 		data := GameData{
 			Player:  joueurs,
 			Game:    jeuEnCours,
-			Gagnant: 0, // ← AJOUTE ÇA !
+			Gagnant: 0,
 		}
 
 		tmpl, err := template.ParseFiles("./game/powernormal.html", "./template/info_joueurs.html")
@@ -89,7 +89,7 @@ func JeuHard(w http.ResponseWriter, r *http.Request) {
 		data := GameData{
 			Player:  joueurs,
 			Game:    jeuEnCours,
-			Gagnant: 0, // ← AJOUTE JUSTE CETTE LIGNE !
+			Gagnant: 0,
 		}
 
 		tmpl, err := template.ParseFiles("./game/powerhard.html", "./template/info_joueurs.html")
