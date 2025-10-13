@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Raleway:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Raleway:wght@400;700&family=Poppins:wght@400;600&display=swap');
 
 html, body {
     height: 100%;
@@ -74,13 +74,82 @@ h1 {
 }
 
 form {
-    max-width: 400px;
-    margin: 40px auto;
-    padding: 24px 32px;
-    background: #23272b;
-    border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 40px 45px;
+    background: linear-gradient(145deg, #23272b, #1a1d20);
+    border-radius: 20px;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 0 40px rgba(255, 107, 107, 0.1);
     font-family: 'Raleway', sans-serif;
+    border: 1px solid rgba(255, 107, 107, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+form::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 107, 107, 0.05), transparent);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-top: 25px;
+    margin-bottom: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #1a1d20;
+    border: 2px solid #ff6b6b;
+    border-radius: 12px;
+    color: #f0f0f0;
+    font-size: 1.1em;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 
+        inset 0 2px 8px rgba(0, 0, 0, 0.3),
+        0 0 15px rgba(255, 107, 107, 0.2);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #ff8e53;
+    box-shadow: 
+        inset 0 2px 8px rgba(0, 0, 0, 0.3),
+        0 0 25px rgba(255, 142, 83, 0.5);
+    transform: scale(1.02);
+    background: #23272b;
+}
+
+input[type="text"]::placeholder {
+    color: #7a7a7a;
+    font-style: italic;
 }
 
 .bouton {

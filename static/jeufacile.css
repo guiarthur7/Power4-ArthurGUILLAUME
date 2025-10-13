@@ -72,6 +72,16 @@ h1 {
     transition: all 0.3s ease;
 }
 
+.cell.joueur1 {
+    background: radial-gradient(circle at 30% 30%, #e7654d, #f16060);
+    box-shadow: 0 0 15px #f10303;
+}
+
+.cell.joueur2 {
+    background: radial-gradient(circle at 30% 30%, #ffd93d, #ffcc00);
+    box-shadow: 0 0 15px #ffd93d;
+}
+
 .boutons button {
     font-family: 'Orbitron', sans-serif;
     font-size: 2.3em;
@@ -96,3 +106,12 @@ h1 {
     box-shadow: 0 0 20px #00bfff, 0 0 35px #00bfff;
     transform: scale(1.1);
 }
+
+.boutons {
+    background: #23272b;
+    border-radius: 20px;
+    padding: 25px;
+    margin: 30px auto;
+    width: fit-content;
+}
+

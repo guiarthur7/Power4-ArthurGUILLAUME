@@ -96,14 +96,18 @@ func ColonnePleine(jeu *Game, col int) bool {
 }
 
 func VerifVictoire(jeu *Game, joueur int) bool {
+	symbole := "X"
+	if joueur == 2 {
+		symbole = "O"
+	}
 
 	// Vérification horizontale
 	for ligne := 0; ligne < len(jeu.Board); ligne++ {
 		for col := 0; col < len(jeu.Board[0])-3; col++ {
-			if jeu.Board[ligne][col] != "" &&
-				jeu.Board[ligne][col] == jeu.Board[ligne][col+1] &&
-				jeu.Board[ligne][col] == jeu.Board[ligne][col+2] &&
-				jeu.Board[ligne][col] == jeu.Board[ligne][col+3] {
+			if jeu.Board[ligne][col] == symbole &&
+				jeu.Board[ligne][col+1] == symbole &&
+				jeu.Board[ligne][col+2] == symbole &&
+				jeu.Board[ligne][col+3] == symbole {
 				return true
 			}
 		}
@@ -112,34 +116,34 @@ func VerifVictoire(jeu *Game, joueur int) bool {
 	// Vérification verticale
 	for ligne := 0; ligne < len(jeu.Board)-3; ligne++ {
 		for col := 0; col < len(jeu.Board[0]); col++ {
-			if jeu.Board[ligne][col] != "" &&
-				jeu.Board[ligne][col] == jeu.Board[ligne+1][col] &&
-				jeu.Board[ligne][col] == jeu.Board[ligne+2][col] &&
-				jeu.Board[ligne][col] == jeu.Board[ligne+3][col] {
+			if jeu.Board[ligne][col] == symbole &&
+				jeu.Board[ligne+1][col] == symbole &&
+				jeu.Board[ligne+2][col] == symbole &&
+				jeu.Board[ligne+3][col] == symbole {
 				return true
 			}
 		}
 	}
 
-	// Vérification diago (haut-gauche vers bas-droite)
+	// Vérification diagonale \ (haut-gauche vers bas-droite)
 	for ligne := 0; ligne < len(jeu.Board)-3; ligne++ {
 		for col := 0; col < len(jeu.Board[0])-3; col++ {
-			if jeu.Board[ligne][col] != "" &&
-				jeu.Board[ligne][col] == jeu.Board[ligne+1][col+1] &&
-				jeu.Board[ligne][col] == jeu.Board[ligne+2][col+2] &&
-				jeu.Board[ligne][col] == jeu.Board[ligne+3][col+3] {
+			if jeu.Board[ligne][col] == symbole &&
+				jeu.Board[ligne+1][col+1] == symbole &&
+				jeu.Board[ligne+2][col+2] == symbole &&
+				jeu.Board[ligne+3][col+3] == symbole {
 				return true
 			}
 		}
 	}
 
-	// Vérification diago (bas-gauche vers haut-droite)
+	// Vérification diagonale / (bas-gauche vers haut-droite)
 	for ligne := 3; ligne < len(jeu.Board); ligne++ {
 		for col := 0; col < len(jeu.Board[0])-3; col++ {
-			if jeu.Board[ligne][col] != "" &&
-				jeu.Board[ligne][col] == jeu.Board[ligne-1][col+1] &&
-				jeu.Board[ligne][col] == jeu.Board[ligne-2][col+2] &&
-				jeu.Board[ligne][col] == jeu.Board[ligne-3][col+3] {
+			if jeu.Board[ligne][col] == symbole &&
+				jeu.Board[ligne-1][col+1] == symbole &&
+				jeu.Board[ligne-2][col+2] == symbole &&
+				jeu.Board[ligne-3][col+3] == symbole {
 				return true
 			}
 		}
