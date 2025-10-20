@@ -24,12 +24,12 @@ func InitGameMoyen() *Game {
 	jeu := &Game{
 		Tour: 1,
 		Board: [][]string{
-			{"", "", "", "", "", "", "", "", "", ""},
-			{"", "", "", "", "", "", "", "", "", ""},
-			{"", "", "", "", "", "", "", "", "", ""},
-			{"", "", "", "", "", "", "", "", "", ""},
-			{"", "", "", "", "", "", "", "", "", ""},
-			{"", "", "", "", "", "", "", "", "", ""},
+			{"", "", "", "", "", "", "", "", ""},
+			{"", "", "", "", "", "", "", "", ""},
+			{"", "", "", "", "", "", "", "", ""},
+			{"", "", "", "", "", "", "", "", ""},
+			{"", "", "", "", "", "", "", "", ""},
+			{"", "", "", "", "", "", "", "", ""},
 		},
 	}
 	return jeu
@@ -125,7 +125,7 @@ func VerifVictoire(jeu *Game, joueur int) bool {
 		}
 	}
 
-	// Vérification diagonale \ (haut-gauche vers bas-droite)
+	// Vérification diagonale
 	for ligne := 0; ligne < len(jeu.Board)-3; ligne++ {
 		for col := 0; col < len(jeu.Board[0])-3; col++ {
 			if jeu.Board[ligne][col] == symbole &&
@@ -137,7 +137,7 @@ func VerifVictoire(jeu *Game, joueur int) bool {
 		}
 	}
 
-	// Vérification diagonale / (bas-gauche vers haut-droite)
+	// Vérification diagonale
 	for ligne := 3; ligne < len(jeu.Board); ligne++ {
 		for col := 0; col < len(jeu.Board[0])-3; col++ {
 			if jeu.Board[ligne][col] == symbole &&

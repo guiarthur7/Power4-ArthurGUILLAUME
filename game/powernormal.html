@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/src/favicon.ico">
     <link href="/static/jeumoyen.css" rel="stylesheet">
-    <title>Mode Facile</title>
+    <title>Mode Normal</title>
 </head>
 
 <body>
     
-    <h1>MODE FACILE</h1>
+    <h1>MODE NORMAL</h1>
 
     {{template "Informations" .Player}}
 
@@ -23,7 +23,9 @@
             {{else if eq .Gagnant 3}}
                 <h2 style="color: #fff; font-size: 2.5em;">Match nul ! 🤝</h2>
             {{end}}
-            <a href="/" style="color: #00bfff; font-size: 1.5em; text-decoration: none; margin-top: 20px; display: inline-block;">🔄 Nouvelle partie</a>
+            <a href="/reset?mode=powernormal" style="color: #00bfff; font-size: 1.5em; text-decoration: none; margin-top: 20px; display: inline-block;">🔄 Nouvelle partie</a>
+            <br>
+            <a href="/" style="color: #ff6b6b; font-size: 1.5em; text-decoration: none; margin-top: 10px; display: inline-block;">🏠 Retourner au menu principal</a>
         </div>
     {{end}}
 
@@ -46,78 +48,13 @@
     </form>
 
     <div class="puissance4">
-        
+        {{range $rowIndex, $row := .Game.Board}}
         <div class="row">
-            <div class="cell {{if eq (index (index .Game.Board 0) 0) "X"}}joueur1{{else if eq (index (index .Game.Board 0) 0) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 0) 1) "X"}}joueur1{{else if eq (index (index .Game.Board 0) 1) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 0) 2) "X"}}joueur1{{else if eq (index (index .Game.Board 0) 2) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 0) 3) "X"}}joueur1{{else if eq (index (index .Game.Board 0) 3) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 0) 4) "X"}}joueur1{{else if eq (index (index .Game.Board 0) 4) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 0) 5) "X"}}joueur1{{else if eq (index (index .Game.Board 0) 5) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 0) 6) "X"}}joueur1{{else if eq (index (index .Game.Board 0) 6) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 0) 7) "X"}}joueur1{{else if eq (index (index .Game.Board 0) 7) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 0) 8) "X"}}joueur1{{else if eq (index (index .Game.Board 0) 8) "O"}}joueur2{{end}}"></div>
+            {{range $colIndex, $cell := $row}}
+            <div class="cell {{if eq $cell "X"}}joueur1{{else if eq $cell "O"}}joueur2{{end}}"></div>
+            {{end}}
         </div>
-  
-        <div class="row">
-            <div class="cell {{if eq (index (index .Game.Board 1) 0) "X"}}joueur1{{else if eq (index (index .Game.Board 1) 0) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 1) 1) "X"}}joueur1{{else if eq (index (index .Game.Board 1) 1) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 1) 2) "X"}}joueur1{{else if eq (index (index .Game.Board 1) 2) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 1) 3) "X"}}joueur1{{else if eq (index (index .Game.Board 1) 3) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 1) 4) "X"}}joueur1{{else if eq (index (index .Game.Board 1) 4) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 1) 5) "X"}}joueur1{{else if eq (index (index .Game.Board 1) 5) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 1) 6) "X"}}joueur1{{else if eq (index (index .Game.Board 1) 6) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 1) 7) "X"}}joueur1{{else if eq (index (index .Game.Board 1) 7) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 1) 8) "X"}}joueur1{{else if eq (index (index .Game.Board 1) 8) "O"}}joueur2{{end}}"></div>
-        </div>
-  
-        <div class="row">
-            <div class="cell {{if eq (index (index .Game.Board 2) 0) "X"}}joueur1{{else if eq (index (index .Game.Board 2) 0) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 2) 1) "X"}}joueur1{{else if eq (index (index .Game.Board 2) 1) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 2) 2) "X"}}joueur1{{else if eq (index (index .Game.Board 2) 2) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 2) 3) "X"}}joueur1{{else if eq (index (index .Game.Board 2) 3) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 2) 4) "X"}}joueur1{{else if eq (index (index .Game.Board 2) 4) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 2) 5) "X"}}joueur1{{else if eq (index (index .Game.Board 2) 5) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 2) 6) "X"}}joueur1{{else if eq (index (index .Game.Board 2) 6) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 2) 7) "X"}}joueur1{{else if eq (index (index .Game.Board 2) 7) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 2) 8) "X"}}joueur1{{else if eq (index (index .Game.Board 2) 8) "O"}}joueur2{{end}}"></div>
-        </div>
-  
-        <div class="row">
-            <div class="cell {{if eq (index (index .Game.Board 3) 0) "X"}}joueur1{{else if eq (index (index .Game.Board 3) 0) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 3) 1) "X"}}joueur1{{else if eq (index (index .Game.Board 3) 1) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 3) 2) "X"}}joueur1{{else if eq (index (index .Game.Board 3) 2) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 3) 3) "X"}}joueur1{{else if eq (index (index .Game.Board 3) 3) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 3) 4) "X"}}joueur1{{else if eq (index (index .Game.Board 3) 4) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 3) 5) "X"}}joueur1{{else if eq (index (index .Game.Board 3) 5) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 3) 6) "X"}}joueur1{{else if eq (index (index .Game.Board 3) 6) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 3) 7) "X"}}joueur1{{else if eq (index (index .Game.Board 3) 7) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 3) 8) "X"}}joueur1{{else if eq (index (index .Game.Board 3) 8) "O"}}joueur2{{end}}"></div>
-        </div>
-  
-        <div class="row">
-            <div class="cell {{if eq (index (index .Game.Board 4) 0) "X"}}joueur1{{else if eq (index (index .Game.Board 4) 0) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 4) 1) "X"}}joueur1{{else if eq (index (index .Game.Board 4) 1) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 4) 2) "X"}}joueur1{{else if eq (index (index .Game.Board 4) 2) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 4) 3) "X"}}joueur1{{else if eq (index (index .Game.Board 4) 3) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 4) 4) "X"}}joueur1{{else if eq (index (index .Game.Board 4) 4) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 4) 5) "X"}}joueur1{{else if eq (index (index .Game.Board 4) 5) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 4) 6) "X"}}joueur1{{else if eq (index (index .Game.Board 4) 6) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 4) 7) "X"}}joueur1{{else if eq (index (index .Game.Board 4) 7) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 4) 8) "X"}}joueur1{{else if eq (index (index .Game.Board 4) 8) "O"}}joueur2{{end}}"></div>
-        </div>
-  
-        <div class="row">
-            <div class="cell {{if eq (index (index .Game.Board 5) 0) "X"}}joueur1{{else if eq (index (index .Game.Board 5) 0) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 5) 1) "X"}}joueur1{{else if eq (index (index .Game.Board 5) 1) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 5) 2) "X"}}joueur1{{else if eq (index (index .Game.Board 5) 2) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 5) 3) "X"}}joueur1{{else if eq (index (index .Game.Board 5) 3) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 5) 4) "X"}}joueur1{{else if eq (index (index .Game.Board 5) 4) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 5) 5) "X"}}joueur1{{else if eq (index (index .Game.Board 5) 5) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 5) 6) "X"}}joueur1{{else if eq (index (index .Game.Board 5) 6) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 5) 7) "X"}}joueur1{{else if eq (index (index .Game.Board 5) 7) "O"}}joueur2{{end}}"></div>
-            <div class="cell {{if eq (index (index .Game.Board 5) 8) "X"}}joueur1{{else if eq (index (index .Game.Board 5) 8) "O"}}joueur2{{end}}"></div>
-        </div>
+        {{end}}
     </div> 
 
 </body>

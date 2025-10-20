@@ -1,10 +1,18 @@
 {{define "Informations"}}
 
-<form>
-    <div class="Informations">
-        <p><strong>Pseudo du Joueur 1 :</strong> {{.Name1}}</p>
-        <p><strong>Pseudo du Joueur 2 :</strong> {{.Name2}}</p>
+<div class="info-container" style="text-align: center; margin: 30px auto; font-family: 'Poppins', sans-serif;">
+    <div class="info-box" style="background: rgba(26, 33, 62, 0.7); backdrop-filter: blur(20px); border-radius: 20px; padding: 25px; margin: 0 auto; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);">
+        
+        <div style="display: flex; justify-content: space-around; margin-bottom: 20px;">
+            <p style="color: #ff6b6b; font-size: 2.3em; font-weight: 600;">
+                🔴 {{.Name1}}
+            </p>
+            <p style="color: #ffd93d; font-size: 2.3em; font-weight: 600;">
+                🟡 {{.Name2}}
+            </p>
+        </div>
+
     </div>
-</form>
+</div>
 
 {{end}}

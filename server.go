@@ -104,13 +104,7 @@ func JeuHard(w http.ResponseWriter, r *http.Request) {
 
 func JouerCoup(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodPost {
-		colStr := r.FormValue("colonne")
-
-		col, err := strconv.Atoi(colStr)
-		if err != nil || col < 0 {
-			http.Error(w, "Colonne invalide", http.StatusBadRequest)
-			return
-		}
+		col, _ := strconv.Atoi(r.FormValue("colonne"))
 
 		joueurActuel := jeuEnCours.Tour
 		gagnant := 0
@@ -131,7 +125,9 @@ func JouerCoup(w http.ResponseWriter, r *http.Request) {
 		}
 
 		mode := r.FormValue("mode")
+
 		var tmpl *template.Template
+		var err error
 
 		if mode == "powerfacile" {
 			tmpl, err = template.ParseFiles("./game/powerfacile.html", "./template/info_joueurs.html")
@@ -144,8 +140,48 @@ func JouerCoup(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			log.Fatal(err)
 		}
+
 		tmpl.Execute(w, data)
 	}
+}
+
+func ResetGame(w http.ResponseWriter, r *http.Request) {
+	mode := r.URL.Query().Get("mode")
+
+	switch mode {
+	case "powerfacile":
+		jeuEnCours = power4.InitGameFacile()
+	case "powernormal":
+		jeuEnCours = power4.InitGameMoyen()
+	case "powerhard":
+		jeuEnCours = power4.InitGameHard()
+	default:
+		http.Redirect(w, r, "/", http.StatusSeeOther)
+		return
+	}
+
+	data := GameData{
+		Player:  joueurs,
+		Game:    jeuEnCours,
+		Gagnant: 0,
+	}
+
+	var tmpl *template.Template
+	var err error
+
+	switch mode {
+	case "powerfacile":
+		tmpl, err = template.ParseFiles("./game/powerfacile.html", "./template/info_joueurs.html")
+	case "powernormal":
+		tmpl, err = template.ParseFiles("./game/powernormal.html", "./template/info_joueurs.html")
+	case "powerhard":
+		tmpl, err = template.ParseFiles("./game/powerhard.html", "./template/info_joueurs.html")
+	}
+
+	if err != nil {
+		log.Fatal(err)
+	}
+	tmpl.Execute(w, data)
 }
 
 func main() {
@@ -154,12 +190,15 @@ func main() {
 	http.HandleFunc("/powernormal.html", JeuNormal)
 	http.HandleFunc("/powerhard.html", JeuHard)
 	http.HandleFunc("/jouer", JouerCoup)
+	http.HandleFunc("/reset", ResetGame)
 
-	fs := http.FileServer(http.Dir("static/"))
+	fs := http.FileServer(http.Dir("./static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
-	imFS := http.FileServer(http.Dir("src/"))
-	http.Handle("/src/", http.StripPrefix("/src/", imFS))
+	rootDoc, _ := http.Dir("./src").Open("/")
+	log.Println(rootDoc)
+
+	http.Handle("/src/", http.StripPrefix("/src/", http.FileServer(http.Dir("./src"))))
 
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
